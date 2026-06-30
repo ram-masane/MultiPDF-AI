@@ -3,7 +3,7 @@ import axios from "axios";
 // Railway Backend URL
 const API = axios.create({
   baseURL: "https://multipdf-ai-production.up.railway.app",
-  timeout: 0,
+  timeout: 300000,
 });
 
 // =====================================
