@@ -1,16 +1,16 @@
-fastapi
-uvicorn
-python-multipart
-python-dotenv
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+python-dotenv==1.0.1
 
-langchain
-langchain-community
-langchain-text-splitters
-langchain-huggingface
-langchain-groq
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-text-splitters==0.2.4
+langchain-huggingface==0.0.3
+langchain-groq==0.1.9
 
-faiss-cpu
+faiss-cpu==1.8.0.post1
 
-sentence-transformers
+sentence-transformers==3.0.1
 
-pymupdf
+pymupdf==1.24.10
