@@ -1,6 +1,4 @@
 from dotenv import load_dotenv
-import os
-
 load_dotenv()
 
 from langchain_groq import ChatGroq
@@ -12,10 +10,11 @@ llm = ChatGroq(
     temperature=0
 )
 
-retriever = get_retriever()
-
 
 def ask_pdf(question):
+
+    # Load latest FAISS index every time
+    retriever = get_retriever()
 
     docs = retriever.invoke(question)
 

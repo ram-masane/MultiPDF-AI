@@ -1,13 +1,13 @@
+from functools import lru_cache
 from langchain_huggingface import HuggingFaceEmbeddings
 
 
+@lru_cache(maxsize=1)
 def get_embedding_model():
     """
-    Load HuggingFace embedding model.
+    Load HuggingFace embedding model only once.
     """
 
-    embedding_model = HuggingFaceEmbeddings(
+    return HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
-
-    return embedding_model
