@@ -41,13 +41,23 @@ def build_vector_store():
     embedding_model = get_embedding_model()
 
     print("=" * 80)
-    print("Creating FAISS Vector Store...")
-    print("=" * 80)
+print("Creating FAISS Vector Store...")
+print("=" * 80)
 
+print(f"Chunks to embed: {len(chunks)}")
+
+try:
     vector_store = FAISS.from_documents(
         documents=chunks,
         embedding=embedding_model
     )
+
+    print("FAISS.from_documents completed successfully.")
+
+except Exception as e:
+    print("ERROR while creating FAISS index:")
+    print(repr(e))
+    raise
 
     os.makedirs(faiss_folder, exist_ok=True)
 
