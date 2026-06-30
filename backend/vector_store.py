@@ -1,17 +1,8 @@
-import os
-
-from langchain_community.vectorstores import FAISS
-
-from embeddings import get_embedding_model
-from ingest import load_documents, split_documents
-
-
 def build_vector_store():
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
     uploads_folder = os.path.join(BASE_DIR, "uploads")
-
     faiss_folder = os.path.join(BASE_DIR, "faiss_index")
 
     print("=" * 80)
@@ -41,23 +32,23 @@ def build_vector_store():
     embedding_model = get_embedding_model()
 
     print("=" * 80)
-print("Creating FAISS Vector Store...")
-print("=" * 80)
+    print("Creating FAISS Vector Store...")
+    print("=" * 80)
 
-print(f"Chunks to embed: {len(chunks)}")
+    print(f"Chunks to embed: {len(chunks)}")
 
-try:
-    vector_store = FAISS.from_documents(
-        documents=chunks,
-        embedding=embedding_model
-    )
+    try:
+        vector_store = FAISS.from_documents(
+            documents=chunks,
+            embedding=embedding_model
+        )
 
-    print("FAISS.from_documents completed successfully.")
+        print("FAISS.from_documents completed successfully.")
 
-except Exception as e:
-    print("ERROR while creating FAISS index:")
-    print(repr(e))
-    raise
+    except Exception as e:
+        print("ERROR while creating FAISS index:")
+        print(repr(e))
+        raise
 
     os.makedirs(faiss_folder, exist_ok=True)
 
@@ -66,7 +57,3 @@ except Exception as e:
     print("=" * 80)
     print("✅ FAISS Index Created Successfully!")
     print("=" * 80)
-
-
-if __name__ == "__main__":
-    build_vector_store()
