@@ -83,12 +83,35 @@ function Home() {
 
     {/* Background Overlay */}
     <div
-      className="absolute inset-0 bg-black/60"
+      className="
+absolute
+inset-0
+bg-black/60
+backdrop-blur-sm
+transition-opacity
+duration-300
+"
       onClick={() => setMobileMenuOpen(false)}
     />
 
     {/* Sidebar */}
-    <div className="absolute left-0 top-0 h-full w-80 bg-slate-950 shadow-2xl overflow-y-auto">
+    <div
+  className={`
+    absolute
+    left-0
+    top-0
+    h-full
+    w-80
+    bg-slate-950
+    shadow-2xl
+    overflow-y-auto
+    transform
+    transition-transform
+    duration-300
+    ease-in-out
+    translate-x-0
+  `}
+>
 
       <Sidebar
         uploadedFiles={uploadedFiles}
