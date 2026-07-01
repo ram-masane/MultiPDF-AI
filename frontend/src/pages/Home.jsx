@@ -78,7 +78,13 @@ function Home() {
 
         {/* LEFT */}
 
-        <div className="flex flex-1 flex-col">
+<div
+  className={`flex flex-1 flex-col ${
+    activeTab === "pdf"
+      ? "hidden md:flex"
+      : "flex"
+  }`}
+>
 
           <div className="flex-1 overflow-y-auto">
 
@@ -116,7 +122,15 @@ function Home() {
 
         {/* RIGHT */}
 
-        <div className="w-[45%] border-l border-slate-800">
+        <div
+  className={`border-l border-slate-800
+  ${
+    activeTab === "chat"
+      ? "hidden md:block"
+      : "block"
+  }
+  md:w-[45%] w-full`}
+>
 
           <PdfViewer
             file={selectedPdf}
