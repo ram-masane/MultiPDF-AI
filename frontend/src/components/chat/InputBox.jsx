@@ -14,6 +14,10 @@ function InputBox({
   function handleKeyDown(e) {
     if (e.key === "Enter") {
       handleSend();
+      function handleNewChat() {
+  clearChat();
+  setInput("");
+}
     }
   }
 

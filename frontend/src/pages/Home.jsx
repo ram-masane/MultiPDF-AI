@@ -24,11 +24,13 @@ function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("chat");
 
+
   const {
-    messages,
-    loading,
-    sendMessage,
-  } = useChat();
+  messages,
+  loading,
+  sendMessage,
+  clearChat,
+} = useChat();
 
   async function handleFilesSelected(files) {
 
@@ -71,11 +73,12 @@ function Home() {
       {/* Desktop Sidebar */}
 <div className="hidden md:block">
   <Sidebar
-    uploadedFiles={uploadedFiles}
-    onFilesSelected={handleFilesSelected}
-    selectedPdf={selectedPdf}
-    setSelectedPdf={setSelectedPdf}
-  />
+  uploadedFiles={uploadedFiles}
+  onFilesSelected={handleFilesSelected}
+  selectedPdf={selectedPdf}
+  setSelectedPdf={setSelectedPdf}
+  onNewChat={handleNewChat}
+/>
 </div>
 
 {/* Mobile Sidebar Drawer */}
@@ -115,14 +118,18 @@ duration-300
 >
 
       <Sidebar
-        uploadedFiles={uploadedFiles}
-        onFilesSelected={handleFilesSelected}
-        selectedPdf={selectedPdf}
-        setSelectedPdf={(pdf) => {
-          setSelectedPdf(pdf);
-          setMobileMenuOpen(false);
-        }}
-      />
+  uploadedFiles={uploadedFiles}
+  onFilesSelected={handleFilesSelected}
+  selectedPdf={selectedPdf}
+  setSelectedPdf={(pdf) => {
+    setSelectedPdf(pdf);
+    setMobileMenuOpen(false);
+  }}
+  onNewChat={() => {
+    handleNewChat();
+    setMobileMenuOpen(false);
+  }}
+/>
 
     </div>
 

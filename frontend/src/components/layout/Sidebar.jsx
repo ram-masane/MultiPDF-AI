@@ -13,6 +13,7 @@ function Sidebar({
   onFilesSelected,
   selectedPdf,
   setSelectedPdf,
+  onNewChat,
 }) {
   return (
     <aside className="flex w-80 flex-col border-r border-slate-800 bg-slate-950">
@@ -48,13 +49,13 @@ function Sidebar({
 
       <div className="px-6">
 
-        <Button className="h-11 w-full rounded-xl">
-
-          <Plus className="mr-2 h-4 w-4" />
-
-          New Chat
-
-        </Button>
+        <Button
+  onClick={onNewChat}
+  className="h-11 w-full rounded-xl"
+>
+  <Plus className="mr-2 h-4 w-4" />
+  New Chat
+</Button>
 
       </div>
 

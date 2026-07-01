@@ -8,7 +8,6 @@ export default function useChat() {
   async function sendMessage(question) {
     if (!question.trim()) return;
 
-    // Add user message and empty AI message
     setMessages((prev) => [
       ...prev,
       {
@@ -24,7 +23,6 @@ export default function useChat() {
 
     setLoading(true);
 
-    // Buffer to avoid duplicated characters
     let fullResponse = "";
 
     try {
@@ -61,9 +59,15 @@ export default function useChat() {
     }
   }
 
+  // ⭐ NEW
+  function clearChat() {
+    setMessages([]);
+  }
+
   return {
     messages,
     loading,
     sendMessage,
+    clearChat,
   };
 }
