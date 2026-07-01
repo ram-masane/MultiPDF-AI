@@ -19,6 +19,8 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const [input, setInput] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("chat");
 
   const {
     messages,
