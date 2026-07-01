@@ -59,14 +59,14 @@ function Home() {
   }
 
   return (
-    <div className="flex h-screen bg-slate-950 text-white">
+    <div className="flex h-screen flex-col bg-slate-950 text-white md:flex-row">
 
       <Sidebar
-        uploadedFiles={uploadedFiles}
-        onFilesSelected={handleFilesSelected}
-        selectedPdf={selectedPdf}
-        setSelectedPdf={setSelectedPdf}
-      />
+    uploadedFiles={uploadedFiles}
+    onFilesSelected={handleFilesSelected}
+    selectedPdf={selectedPdf}
+    setSelectedPdf={setSelectedPdf}
+  />
 
       <main className="flex flex-1 overflow-hidden">
 
