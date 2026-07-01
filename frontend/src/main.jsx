@@ -9,7 +9,13 @@ import ChatProvider from "./context/ChatProvider";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ChatProvider>
-      <App />
+      import { ChatProvider } from "./context/ChatContext";
+
+root.render(
+    <ChatProvider>
+        <App />
+    </ChatProvider>
+);
     </ChatProvider>
   </StrictMode>
 );

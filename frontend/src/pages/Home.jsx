@@ -15,6 +15,7 @@ function Home() {
 
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [selectedPdf, setSelectedPdf] = useState(null);
+  
 
   // ⭐ NEW
   const [currentPage, setCurrentPage] = useState(1);
