@@ -67,12 +67,43 @@ function Home() {
   setMobileMenuOpen={setMobileMenuOpen}
 />
 
-      <Sidebar
+      {/* Desktop Sidebar */}
+<div className="hidden md:block">
+  <Sidebar
     uploadedFiles={uploadedFiles}
     onFilesSelected={handleFilesSelected}
     selectedPdf={selectedPdf}
     setSelectedPdf={setSelectedPdf}
   />
+</div>
+
+{/* Mobile Sidebar Drawer */}
+{mobileMenuOpen && (
+  <div className="fixed inset-0 z-50 md:hidden">
+
+    {/* Background Overlay */}
+    <div
+      className="absolute inset-0 bg-black/60"
+      onClick={() => setMobileMenuOpen(false)}
+    />
+
+    {/* Sidebar */}
+    <div className="absolute left-0 top-0 h-full w-80 bg-slate-950 shadow-2xl overflow-y-auto">
+
+      <Sidebar
+        uploadedFiles={uploadedFiles}
+        onFilesSelected={handleFilesSelected}
+        selectedPdf={selectedPdf}
+        setSelectedPdf={(pdf) => {
+          setSelectedPdf(pdf);
+          setMobileMenuOpen(false);
+        }}
+      />
+
+    </div>
+
+  </div>
+)}
 
       <main className="flex flex-1 overflow-hidden">
 
