@@ -6,6 +6,7 @@ import ReadyToChat from "../components/chat/ReadyToChat";
 import ChatBox from "../components/chat/ChatBox";
 import InputBox from "../components/chat/InputBox";
 import PdfViewer from "../components/pdf/PdfViewer";
+import MobileHeader from "../components/layout/MobileHeader";
 
 import { uploadPDFs } from "../services/api";
 import useChat from "../hooks/useChat";
@@ -60,6 +61,11 @@ function Home() {
 
   return (
     <div className="flex h-screen flex-col bg-slate-950 text-white md:flex-row">
+      <MobileHeader
+  activeTab={activeTab}
+  setActiveTab={setActiveTab}
+  setMobileMenuOpen={setMobileMenuOpen}
+/>
 
       <Sidebar
     uploadedFiles={uploadedFiles}
